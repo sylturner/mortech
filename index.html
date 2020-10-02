@@ -1,0 +1,127 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Mortech&trade; Webcam</title>
+    <style>
+      body {
+        background-color: black;
+        background-image: url(stars.gif);
+        color: red;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      h1 {
+        font-size: 500%;
+      }
+      .header img {
+        width: 30%;
+      }
+      #main div {
+        display: inline-block;
+      }
+      .side-gifs {
+        display: inline-block;
+        width: 10%;
+      }
+      .side-gifs img {
+        width: 150px;
+        display: block;
+      }
+      #slideshow {
+        display: inline-block;
+        background-image: url(blood-divider.gif);
+        background-repeat: repeat-x;
+        background-position: center top;
+        width: 60%;
+        vertical-align: top;
+      }
+
+      #main-photo {
+        margin-top: 100px;
+        width: 400px;
+        vertical-align: bottom;
+      }
+      #left .button, #right .button {
+        vertical-align: middle;
+        height: 150px;
+      }
+      #description {
+        width: 75%;
+        font-size: 14pt;
+      }
+      marquee {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        font-size: 300%;
+        width: 60%;
+      }
+
+    </style>
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function(){
+      // setup gifs
+      gifs = document.querySelectorAll(".side-gifs img")
+      console.log(gifs)
+      for(gif of gifs) {
+        gif.src = "gifs/" + randomInt(1, 25) + ".gif"
+      }
+    });
+
+      let slide = 1;
+      function rotate(dir) {
+        slide = slide + dir;
+        if(slide < 1) {
+          slide = 8
+        }
+        if(slide > 8) {
+          slide = 1
+        }
+        document.getElementById("main-photo").src = "photos/"+slide+".jpg";
+      }
+
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min) ) + min;
+}
+
+    </script>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Mortech&trade; Webcam!!</h1>
+      <marquee scrollamount="10">The last webcam you'll ever buy!! HA HA HA</marquee>
+    </div>
+
+    <div id="main">
+      <div class="side-gifs">
+        <img src="gifs/1.gif"/>
+        <img src="gifs/2.gif"/>
+        <img src="gifs/3.gif"/>
+      </div>
+
+      <div id="slideshow">
+        <div id="slider">
+          <a id="left" href="#left" onclick="rotate(-1)"><img class='button' src="left.gif" alt="Go back, if you dare!"/></a>
+          <img id="main-photo" src="photos/1.jpg" alt="Image 1"/></a>
+          <a id="right" href="#right" onclick="rotate(1)"><img class='button' src="right.gif" alt="Go right, it might be your last!"/></a>
+        </div>
+        <div id="description">
+          <p>New from the Mortech&trade; Labs comes the last webcam you'll never buy! Featuring fate-of-the-art technology, your experiences on-line will never be teh same... again!</p>
+          <a href="https://actionshowstudios.com"><img src="order-now.gif" alt="Order now, if you dare!"/></a>
+          <p>
+            Only $30!
+          </p>
+        </div>
+      </div>
+
+      <div class="side-gifs">
+        <img src="gifs/4.gif"/>
+        <img src="gifs/5.gif"/>
+        <img src="gifs/6.gif"/>
+      </div>
+    </div>
+
+  </body>
+</html>
